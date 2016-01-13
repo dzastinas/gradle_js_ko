@@ -1,0 +1,31 @@
+group 'com.gradle_js_ko'
+version '1.0-SNAPSHOT'
+
+apply plugin: "com.eriwen.gradle.js"
+
+buildscript {
+    repositories {
+        jcenter()
+    }
+
+    dependencies {
+        classpath "com.eriwen:gradle-js-plugin:1.12.1"
+    }
+}
+
+// Declare your sources
+javascript.source {
+    dev {
+        js {
+            srcDir jsSrcDir
+            include "*.js"
+            exclude "*.min.js"
+        }
+    }
+    prod {
+        js {
+            srcDir jsSrcDir
+            include "*.min.js"
+        }
+    }
+}
